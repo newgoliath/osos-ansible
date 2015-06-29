@@ -1,0 +1,25 @@
+---
+- hosts: all
+  vars:
+    unknown: 0
+    ssh_keys:
+      - /root/cloud.key.pub
+  remote_user: cloud-user
+  become: yes
+  tasks:
+  - name: Remove NetworkManager
+    yum: pkg=NetworkManager state=removed
+  - name: Create /etc/hosts
+    template: src=srv/etc/hosts dest=/etc/hosts
+  - name: Check Hostname
+    shell: 'hostname -f | grep magenta'
+  - name: Setup Red Hat Subscriptions
+  - name: Enable Repositories
+  - name: Install prereq packages
+  - name: Setup advanced Docker storage (thinpool + LVM) if Cinder volumes are available
+  - name: Clone the training repos
+  - name: Add development users
+  - name: Run the upstream playbooks
+  - name: setup the proper cloud domains
+
+ 
